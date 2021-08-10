@@ -13,7 +13,7 @@ Tools:
 * `yarn install`
 * Use `just dev` to start server and Tailwind in watch mode
 
-NOTE: css is being bundled and minified in a pre-commit hook.
+NOTE: there is a pre-commit hook to minify & bundle css and to generate pdf.
 
 
 

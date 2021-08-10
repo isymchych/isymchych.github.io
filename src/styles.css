@@ -29,7 +29,7 @@ html, body {
 }
 
 article {
-  @apply relative mx-auto my-4 p-4 md:p-12 bg-white shadow-md;
+  @apply relative mx-auto my-14 p-4 md:p-12 bg-white shadow-md;
 
   max-width: 85ch;
   min-height: 95vh;
@@ -96,6 +96,10 @@ section > h2 {
 
 /* PRINT */
 @media print {
+  @page {
+    size: A4 portrait;
+  }
+
   html, body {
     background-color: white;
     font-size: 13px;

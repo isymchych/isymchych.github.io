@@ -10,11 +10,13 @@
     "postinstall": "husky install",
     "build:css": "NODE_ENV=production  tailwindcss -i src/styles.css -o bundle.css --minify",
     "watch:css": "NODE_ENV=development tailwindcss -i src/styles.css -o bundle.css --watch",
+    "build:pdf": "node generate-pdf.js",
     "start": "http-server ./ --p 8001 -c-1"
   },
   "devDependencies": {
     "http-server": "^13.0.0",
     "husky": "^7.0.1",
+    "puppeteer": "^10.2.0",
     "tailwindcss": "^2.2.7"
   }
 }
