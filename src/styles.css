@@ -1,0 +1,125 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* make taps faster - browser doesn't wait 300ms for double-tap to zoom */
+  a, button {
+    touch-action: manipulation;
+  }
+
+  a {
+    @apply no-underline text-blue-600 dark:text-blue-400;
+  }
+}
+
+html, body {
+  @apply bg-gray-200;
+  color: #3F4650;
+
+  text-rendering: optimizeLegibility;
+  @apply antialiased;
+}
+
+/* MOBILE */
+@media only screen and (max-width: 600px) {
+  html, body {
+    font-size: 16px;
+  }
+}
+
+article {
+  @apply relative mx-auto md:my-4 p-4 md:p-12 bg-white shadow-md;
+
+  max-width: 85ch;
+  min-height: 95vh;
+}
+
+.header-contacts td {
+  @apply h-12 md:h-8 pl-2;
+}
+
+.header-contacts th {
+  text-align: right;
+}
+
+section {
+  @apply mb-10;
+}
+
+section > h2 {
+  @apply uppercase tracking-wider font-semibold mb-3 text-lg;
+}
+
+.experience {
+  margin-bottom: 2rem;
+}
+
+.experience .period {
+  @apply text-gray-600 dark:text-gray-200 md:pl-2 font-normal text-sm block md:inline-block;
+}
+
+.experience > h3 {
+  @apply font-semibold mb-4 mt-6;
+}
+
+.experience ul {
+  @apply list-disc pl-4 md:pl-8;
+}
+
+.experience li {
+  @apply mb-4;
+}
+.experience li h4 {
+  @apply font-semibold mb-2 inline-block text-sm;
+}
+
+.experience li p {
+  @apply mb-2;
+}
+
+.technologies {
+  @apply font-mono text-sm;
+}
+
+/* DARK THEME */
+@media (prefers-color-scheme: dark) {
+  html, body {
+    color: #f8f8f2;
+    background-color: #212121;
+  }
+
+  article {
+    background-color: #262626;
+  }
+}
+
+/* PRINT */
+@media print {
+  html, body {
+    background-color: white;
+    font-size: 13px;
+    line-height: 1.3;
+  }
+
+  article {
+    @apply m-0 p-0 max-w-full shadow-none;
+  }
+
+  /* PAGE BREAKS */
+
+  h1, h2, h3, h4, h5, h6 {
+    break-after: avoid-page;
+    page-break-after: avoid; /* for compatibility */
+  }
+
+  .experience, .experience li {
+    break-inside: avoid-page;
+    page-break-inside: avoid; /* for compatibility */
+  }
+
+  .experience li {
+    break-after: auto;
+    page-break-after: auto; /* for compatibility */
+  }
+}
