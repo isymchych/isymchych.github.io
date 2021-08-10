@@ -30,11 +30,11 @@
     </script>
   </head>
   <body>
-    <article>
+    <div class="flex justify-end pt-4 pr-4 md:pr-16 print:hidden">
       <button
         type="button"
         onclick="window.print()"
-        class="absolute top-5 md:top-12 lg:top-4 right-6 md:right-12 text-blue-600 flex flex-row items-center print:hidden"
+        class="text-blue-600 flex flex-row items-center"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -47,7 +47,9 @@
 
         Print!
       </button>
+    </div>
 
+    <article>
       <header class="flex justify-between flex-wrap w-full mb-10 md:mb-16">
         <div class="mb-8">
           <h1 class="text-2xl font-bold mb-4">
@@ -286,8 +288,9 @@
       </section>
     </article>
 
-    <footer class="flex flex-col items-center my-8 font-mono">
-      <div id="last-update-time"></div>
-    </footer>
+    <div
+      id="last-update-time"
+      class="flex justify-center my-12 font-mono print:hidden">
+    </div>
   </body>
 </html>

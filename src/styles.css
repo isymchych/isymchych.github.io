@@ -29,7 +29,7 @@ html, body {
 }
 
 article {
-  @apply relative mx-auto md:my-4 p-4 md:p-12 bg-white shadow-md;
+  @apply relative mx-auto my-4 p-4 md:p-12 bg-white shadow-md;
 
   max-width: 85ch;
   min-height: 95vh;
