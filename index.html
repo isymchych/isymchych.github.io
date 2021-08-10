@@ -17,6 +17,16 @@
 
     <script>
      const years_of_experience = new Date().getFullYear() - 2010;
+
+     fetch('https://api.github.com/repos/isymchych/isymchych.github.io/commits?per_page=1')
+       .then(result => result.json())
+       .then(result => new Date(result[0].commit.author.date).toDateString())
+       .then((dateStr) => {
+         document.getElementById('last-update-time').innerText = `updated ${dateStr}`;
+       })
+       .catch((err) => {
+         console.error('Failed to get last commit date', err);
+       });
     </script>
   </head>
   <body>
@@ -275,5 +285,9 @@
         programming, science fiction & popular science, traveling, hiking, computer games
       </section>
     </article>
+
+    <footer class="flex flex-col items-center my-8 font-mono">
+      <div id="last-update-time"></div>
+    </footer>
   </body>
 </html>
