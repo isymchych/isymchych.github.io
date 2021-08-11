@@ -4,7 +4,7 @@ CV is built with HTML and [Tailwind](https://tailwindcss.com).
 
 Tools:
 * Yarn
-* [Just](https://github.com/casey/just).
+* [Just](https://github.com/casey/just)
 * Tmux
 
 
