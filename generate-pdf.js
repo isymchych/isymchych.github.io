@@ -14,7 +14,6 @@ async function run() {
 
   await page.pdf({
     path: 'CV_Ivan_Symchych.pdf',
-    margin: { left: '1cm', top: '1.5cm', right: '1cm', bottom: '1cm' },
   });
 
   await browser.close();
