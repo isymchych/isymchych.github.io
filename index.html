@@ -16,6 +16,24 @@
     <link rel="stylesheet" href="./bundle.css">
 
     <script>
+     function insertEmailOnce(el) {
+       el.innerHTML = '';
+
+       const mail = [
+         'ivan.symchych',
+         '@g',
+         'mail.com',
+       ].join('');
+
+       const a = document.createElement('a');
+       a.href = `mailto:${mail}`;
+       a.appendChild(document.createTextNode(mail));
+
+       el.appendChild(a);
+
+       el.removeAttribute('onmouseover');
+     }
+
      const years_of_experience = new Date().getFullYear() - 2010;
 
      fetch('https://api.github.com/repos/isymchych/isymchych.github.io/commits?per_page=1')
@@ -60,12 +78,14 @@
               <th scope="row">
                 Email:
               </th>
-              <td>
-                <span>ivan.symchych</span><span class="hidden">
-                  HIDDEN JUNK
-                </span><span>@g</span><span class="hidden">
-                  HIDDEN JUNK
-                </span><span>mail.com</span>
+              <td onmouseover="insertEmailOnce(this)">
+                <a href="">
+                  <span>ivan.symchych</span><span class="hidden">
+                    HIDDEN JUNK
+                  </span><span>@g</span><span class="hidden">
+                    HIDDEN JUNK
+                  </span><span>mail.com</span>
+                </a>
               </td>
             </tr>
             <tr>
