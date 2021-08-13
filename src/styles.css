@@ -82,6 +82,18 @@ section > h2 {
   @apply font-mono text-sm;
 }
 
+.languages td {
+  @apply h-12 md:h-8;
+}
+
+.languages th {
+  text-align: right;
+}
+
+.languages tr td:first-child {
+  @apply font-semibold pr-2;
+}
+
 /* DARK THEME */
 @media (prefers-color-scheme: dark) {
   html, body {
