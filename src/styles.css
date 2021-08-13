@@ -56,7 +56,7 @@ section > h2 {
 }
 
 .experience .period {
-  @apply text-gray-600 dark:text-gray-200 md:pl-2 font-normal text-sm block md:inline-block;
+  @apply text-gray-600 dark:text-gray-200 md:pl-2 font-normal text-sm block md:inline-block print:inline-block;
 }
 
 .experience > h3 {
@@ -64,7 +64,7 @@ section > h2 {
 }
 
 .experience ul {
-  @apply list-disc pl-4 md:pl-8;
+  @apply list-disc print:list-inside pl-4 md:pl-8 print:pl-0;
 }
 
 .experience li {
@@ -83,11 +83,7 @@ section > h2 {
 }
 
 .languages td {
-  @apply h-12 md:h-8;
-}
-
-.languages th {
-  text-align: right;
+  @apply h-8 print:h-6;
 }
 
 .languages tr td:first-child {
