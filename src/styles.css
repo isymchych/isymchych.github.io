@@ -11,6 +11,18 @@
   a {
     @apply no-underline text-blue-600 dark:text-blue-400;
   }
+
+  a.on-grey-bg {
+    @apply text-blue-700 dark:text-blue-400;
+  }
+
+  mark {
+    @apply font-mono text-current bg-green-200 bg-opacity-30 px-1 p-0.5 rounded-sm;
+  }
+
+  p {
+    @apply mb-4;
+  }
 }
 
 html, body {
