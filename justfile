@@ -8,3 +8,6 @@ server:
 
 dev:
   tmux new-session -s CV 'just server' \; split-window -h 'yarn watch:css'
+
+pdf:
+  yarn run build:pdf

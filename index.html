@@ -16,35 +16,35 @@
     <link rel="stylesheet" href="./bundle.css">
 
     <script>
-     function insertEmailOnce(el) {
-       el.innerHTML = '';
+      function insertEmailOnce(el) {
+          el.innerHTML = '';
 
-       const mail = [
-         'ivan.symchych',
-         '@g',
-         'mail.com',
-       ].join('');
+          const mail = [
+              'ivan.symchych',
+              '@g',
+              'mail.com',
+          ].join('');
 
-       const a = document.createElement('a');
-       a.href = `mailto:${mail}`;
-       a.appendChild(document.createTextNode(mail));
+          const a = document.createElement('a');
+          a.href = `mailto:${mail}`;
+          a.appendChild(document.createTextNode(mail));
 
-       el.appendChild(a);
+          el.appendChild(a);
 
-       el.removeAttribute('onmouseover');
-     }
+          el.removeAttribute('onmouseover');
+      }
 
-     const years_of_experience = new Date().getFullYear() - 2010;
+      const years_of_experience = new Date().getFullYear() - 2010;
 
-     fetch('https://api.github.com/repos/isymchych/isymchych.github.io/commits?per_page=1')
-       .then(result => result.json())
-       .then(result => new Date(result[0].commit.author.date).toDateString())
-       .then((dateStr) => {
-         document.getElementById('last-update-time').innerText = `updated ${dateStr}`;
-       })
-       .catch((err) => {
-         console.error('Failed to get last commit date', err);
-       });
+      fetch('https://api.github.com/repos/isymchych/isymchych.github.io/commits?per_page=1')
+    .then(result => result.json())
+    .then(result => new Date(result[0].commit.author.date).toDateString())
+    .then((dateStr) => {
+        document.getElementById('last-update-time').innerText = `updated ${dateStr}`;
+    })
+    .catch((err) => {
+        console.error('Failed to get last commit date', err);
+    });
     </script>
   </head>
   <body>
@@ -121,12 +121,9 @@
         </p>
 
         <p>
-          A systems thinker, pragmatic, result-oriented. I enjoy finding simple solutions to complicated problems.
-          Know about clean code, teamwork, documentation, and tests.
-        </p>
-
-        <p>
-          Committed to professional growth.
+          A results-oriented systems thinker with a pragmatic approach and a diverse skill set.
+          Proficient in clean code, teamwork, documentation, and testing.
+          Committed to high integrity, continuous learning, and quick problem-solving.
         </p>
 
         <p>
@@ -328,7 +325,7 @@
         target="_blank"
         rel="noopener"
         class="on-grey-bg"
-      >
+        >
         source
       </a>
     </div>
