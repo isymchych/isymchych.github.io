@@ -4,10 +4,10 @@
 # vim: set ft=make :
 
 server:
-  yarn start
+  npm start
 
 dev:
-  tmux new-session -s CV 'just server' \; split-window -h 'yarn watch:css'
+  tmux new-session -s CV 'just server' \; split-window -h 'npm run watch:css'
 
 pdf:
-  yarn run build:pdf
+  npm run build:pdf

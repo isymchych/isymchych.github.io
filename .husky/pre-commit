@@ -1,6 +1,6 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-yarn build:css && git add bundle.css
+npm run build:css && git add bundle.css
 
-yarn build:pdf && git add CV_Ivan_Symchych.pdf
+npm run build:pdf && git add CV_Ivan_Symchych.pdf
