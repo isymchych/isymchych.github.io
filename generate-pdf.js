@@ -2,11 +2,13 @@
 
 const path = require('path');
 
-const puppeteer = require('puppeteer');
+const puppeteer = require('puppeteer-core');
+const which = require('which');
 
 async function run() {
   const browser = await puppeteer.launch({
     headless: true,
+    executablePath: await findChrome(),
   });
 
   const page = await browser.newPage();
@@ -24,3 +26,20 @@ run().catch((err) => {
 
   process.exit(1);
 });
+
+
+async function findChrome() {
+  const chrome = await which('google-chrome-stable', { nothrow: true });
+
+  if (chrome) {
+    return chrome;
+  }
+
+  const chromium = await which('chromium', { nothrow: true });
+
+  if (chromium) {
+    return chromium;
+  }
+
+  throw new Error("Couldn't find neither Chrome nor Chromium");
+}
