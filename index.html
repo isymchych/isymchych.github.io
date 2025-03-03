@@ -40,7 +40,7 @@
     .then(result => result.json())
     .then(result => new Date(result[0].commit.author.date).toDateString())
     .then((dateStr) => {
-        document.getElementById('last-update-time').innerText = `updated ${dateStr}`;
+        document.getElementById('last-update-time').innerText = `Updated on ${dateStr}`;
     })
     .catch((err) => {
         console.error('Failed to get last commit date', err);
@@ -127,7 +127,7 @@
         </p>
 
         <p>
-          <strong>Not interested</strong> in gambling, betting, surveillance, or ads industries.
+          <strong>Not interested</strong> in gambling, betting, surveillance, or ad tech.
         </p>
       </section>
 
@@ -136,19 +136,19 @@
 
         <ul class="font-mono tracking-wide mb-4 list-disc list-inside text-sm md:text-base">
           <li class="mb-1">TypeScript, JavaScript, Rust, Java, SQL, GraphQL</li>
-          <li class="mb-1">HTML, CSS, SCSS, CSS-in-JS</li>
-          <li class="mb-1">OOP/OOD, FP, Design Patterns, SOLID, HTTP, REST</li>
-          <li class="mb-1">Linux, Emacs, Jenkins, Docker</li>
+          <li class="mb-1">HTML, CSS, SCSS, CSS-in-JS, Tailwind</li>
+          <li class="mb-1">OOP/OOD, FP, Reactive Programming, Design Patterns, SOLID, HTTP, REST</li>
+          <li class="mb-1">Linux, Emacs</li>
         </ul>
 
         <p>
           I'm an expert in <mark>TypeScript</mark> and <mark>JavaScript</mark>, love and enjoy <mark>Rust</mark>, and, earlier in my career, used to code in <mark>Java</mark>.
         </p>
         <p>
-          Last few years I was working primarily with <mark>React.js</mark>, <mark>Redux.js</mark>, <mark>Node.js</mark>, <mark>GraphQL</mark>, <mark>REST</mark>, <mark>HTML</mark>, <mark>SCSS</mark>, <mark>CSS-in-JS</mark>, and a bit of <mark>Angular</mark>.
+          Last few years I was working primarily with <mark>TypeScript</mark>, <mark>React.js</mark>, <mark>Node.js</mark>, <mark>REST</mark>, <mark>Web components</mark>, <mark>CSS</mark>, <mark>Tailwind</mark>, <mark>Rust</mark>.
         </p>
         <p>
-          Also, I have experience with HTML5 video streaming and WebRTC.
+          Also, I have experience with geospatial JS libraries, HTML5 video streaming and WebRTC.
         </p>
       </section>
 
@@ -156,6 +156,17 @@
         <h2>Experience</h2>
 
         <div class="experience">
+          <h3>
+            Contractor at Synergetica <span class="period">Sep 2021 – January 2025</span>
+          </h3>
+          <ul>
+            <li>
+              <h4>Waze Map Editor for Waze, the community-driven navigation platform</h4>
+              <p>Waze Map Editor (WME) is an online tool that allows users to edit and update Waze maps. I contributed to its migration from JavaScript to TypeScript and from Marionette.js to React.js, designing many of the core hooks and strategies for a gradual transition. I also helped to design and build the initial version of an SDK for user scripts and create a mapping library now used across multiple Waze projects.
+              </p>
+              <p class="technologies">TypeScript, React.js, Backbone.js, OpenLayers, GeoJSON, Stencil, Jest, Puppeteer</p>
+            </li>
+          </ul>
           <h3>
             Contractor at Remit <span class="period">April 2016 – February 2021</span>
           </h3>
@@ -296,16 +307,12 @@
           <thead></thead>
           <tbody>
             <tr>
-              <td>English</td>
-              <td>Advanced</td>
-            </tr>
-            <tr>
               <td>Ukrainian</td>
               <td>Native</td>
             </tr>
             <tr>
-              <td>Russian</td>
-              <td>Limited working proficiency</td>
+              <td>English</td>
+              <td>Advanced</td>
             </tr>
           </tbody>
         </table>
@@ -314,7 +321,7 @@
       <section>
         <h2>Interests</h2>
 
-        programming, science fiction & popular science, traveling, hiking, computer games
+        Programming (particularly human-computer interactions, software engineering, cryptography, distributed systems), science fiction & popular science, traveling, hiking, computer games
       </section>
     </article>
 
