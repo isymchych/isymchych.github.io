@@ -1,6 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 @layer base {
   /* make taps faster - browser doesn't wait 300ms for double-tap to zoom */
@@ -17,7 +15,7 @@
   }
 
   mark {
-    @apply font-mono text-current bg-green-200 bg-opacity-30 px-1 p-0.5 rounded-sm print:font-bold;
+    @apply font-mono text-current bg-green-200/30 px-1 p-0.5 rounded-xs print:font-bold;
   }
 
   p {
