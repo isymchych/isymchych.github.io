@@ -3,4 +3,4 @@
 
 npm run build:css && git add bundle.css
 
-npm run build:pdf && git add CV_Ivan_Symchych.pdf
+npm run build:pdf && git add CV_Ivan_Symchych.pdf && git add Резюме_Іван_Симчич.pdf
