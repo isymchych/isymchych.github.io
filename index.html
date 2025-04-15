@@ -16,6 +16,12 @@
     <link rel="stylesheet" href="./bundle.css">
 
     <script>
+      // switch to Ukrainian if it's main browser language; otherwise, keep using en
+      const browserLang = (navigator.language || navigator.languages[0]).split('-')[0];
+      if (browserLang == 'uk') {
+        document.documentElement.lang = 'uk';
+      }
+
       function insertEmailOnce(el) {
           el.innerHTML = '';
 
@@ -46,11 +52,31 @@
         console.error('Failed to get last commit date', err);
     });
     </script>
+
+    <style>
+        html:not([lang="en"]) :lang(en) {
+          display: none!important;
+        }
+
+        html:not([lang="uk"]) :lang(uk) {
+          display: none!important;
+        }
+
+        html[lang="en"] .lang-switcher[data-value="en"],
+        html[lang="uk"] .lang-switcher[data-value="uk"] {
+          font-weight: bold;
+        }
+    </style>
   </head>
   <body>
     <article>
-      <div class="absolute right-4 -top-10 print:hidden font-bold">
-        <a href="./CV_Ivan_Symchych.pdf" class="flex items-center on-grey-bg">
+      <div class="absolute left-4 right-4 flex justify-between -top-10 print:hidden">
+        <div class="flex gap-4" aria-label="Language selector">
+          <button data-value="en" class="lang-switcher cursor-pointer text-xs text-blue-700" type="button">English</button>
+          <button data-value="uk" class="lang-switcher cursor-pointer text-xs text-blue-700" type="button">Українська</button>
+        </div>
+
+        <a href="./CV_Ivan_Symchych.pdf" class="flex items-center on-grey-bg font-bold">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
             <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
           </svg>
@@ -61,13 +87,19 @@
       <header class="flex justify-between flex-wrap w-full mb-10">
         <div class="mb-8">
           <h1 class="text-2xl font-bold mb-4">
-            Ivan Symchych
+            <span lang="uk">Іван Симчич</span>
+            <span lang="en">Ivan Symchych</span>
           </h1>
           <div class="text-lg">
-            Software Engineer from
-            <a href="https://en.wikipedia.org/wiki/Lviv" target="_blank" rel="noopener">
-              Lviv, Ukraine
-            </a>
+            <span lang="uk">
+              Full Stack розробник, Львів
+            </span>
+            <span lang="en">
+              Software Engineer from
+              <a href="https://en.wikipedia.org/wiki/Lviv" target="_blank" rel="noopener">
+                Lviv, Ukraine
+              </a>
+            </span>
           </div>
         </div>
 
@@ -113,27 +145,40 @@
       </header>
 
       <section>
-        <h2>Summary</h2>
+        <h2 lang="en">Summary</h2>
+        <h2 lang="uk">Резюме</h2>
 
-        <p>
-          Full-stack software engineer with <script>document.write(years_of_experience)</script> years of experience, seeking interesting projects.
+        <p lang="en">
+          Full Stack software engineer with <script>document.write(years_of_experience)</script> years of experience, seeking interesting projects.
           I can build projects from the ground-up, and develop them without accumulating too much technical debt.
           I have extensive experience modernizing mature systems as well.
         </p>
+        <p lang="uk">
+          Full Stack розробник з <script>document.write(years_of_experience)</script> роками досвіду.
+          Можу створювати проєкти з нуля та розвивати їх без надмірного накопичення технічного боргу.
+          Маю значний досвід модернізації legacy систем.
+        </p>
 
-        <p>
+        <p lang="en">
           A results-oriented systems thinker with a pragmatic approach and a diverse skill set.
           Proficient in clean code, teamwork, documentation, and testing.
           Committed to high integrity, continuous learning, and quick problem-solving.
         </p>
+        <p lang="uk">
+          Проактивний, прагматичний, відповідальний, мотивований.
+          Вмію писати чистий код, працювати в команді, документувати і тестувати.
+          Легко освоюю нові технології.
+          Орієнтований на результат.
+        </p>
 
-        <p>
+        <p lang="en">
           <strong>Not interested</strong> in gambling, betting, surveillance, or ad tech.
         </p>
       </section>
 
       <section>
-        <h2>Technical Highlights</h2>
+        <h2 lang="en">Technical Highlights</h2>
+        <h2 lang="uk">Технічні Навички</h2>
 
         <ul class="font-mono tracking-wide mb-4 list-disc list-inside text-sm md:text-base">
           <li class="mb-1">TypeScript, JavaScript, Rust, Java, SQL, GraphQL</li>
@@ -142,53 +187,86 @@
           <li class="mb-1">Linux, Emacs</li>
         </ul>
 
-        <p>
-          I'm an expert in <mark>TypeScript</mark> and <mark>JavaScript</mark>, love and enjoy <mark>Rust</mark>, and, earlier in my career, used to code in <mark>Java</mark>.
+        <p lang="en">
+          I'm an expert in <mark>TypeScript</mark> and <mark>JavaScript</mark>, actively use <mark>Rust</mark>, and, earlier in my career, used to code in <mark>Java</mark>.
         </p>
-        <p>
+        <p lang="uk">
+          Я —  експерт у <mark>TypeScript</mark> та <mark>JavaScript</mark>, активно пишу на <mark>Rust</mark>, а на початку кар’єри працював із <mark>Java</mark>.
+        </p>
+
+        <p lang="en">
           Last few years I was working primarily with <mark>TypeScript</mark>, <mark>React.js</mark>, <mark>Node.js</mark>, <mark>REST</mark>, <mark>Web components</mark>, <mark>CSS</mark>, <mark>Tailwind</mark>, <mark>Rust</mark>, <mark>Axum</mark>, <mark>Tokio</mark>.
         </p>
-        <p>
+        <p lang="uk">
+          Останні декілька років я переважно працював із <mark>TypeScript</mark>, <mark>React.js</mark>, <mark>Node.js</mark>, <mark>REST</mark>, <mark>Web Components</mark>, <mark>CSS</mark>, <mark>Tailwind</mark>, <mark>Rust</mark>, <mark>Axum</mark>, <mark>Tokio</mark>.
+        </p>
+
+        <p lang="en">
           Also, I have experience with geospatial JS libraries, HTML5 video streaming and WebRTC.
+        </p>
+        <p lang="uk">
+          Також маю досвід роботи з геопросторовими бібліотеками на JavaScript, потоковим відео HTML5 та WebRTC.
         </p>
       </section>
 
       <section>
-        <h2>Experience</h2>
+        <h2 lang="en">Experience</h2>
+        <h2 lang="uk">Досвід роботи</h2>
 
         <div class="experience">
-          <h3>
-            Full Stack Engineer at Synergetica <span class="period">Sep 2021 – January 2025</span>
+          <h3 lang="en">
+            Full Stack Engineer at Synergetica <span class="period">September 2021 – January 2025</span>
+          </h3>
+          <h3 lang="uk">
+            Full Stack розробник в Synergetica <span class="period">Вересень 2021 – Січень 2025</span>
           </h3>
           <ul>
             <li>
-              <h4>Waze Map Editor for Waze (Google subsidiary), the community-driven navigation platform</h4>
-              <p>Waze Map Editor (WME) is an online tool that allows users to edit and update Waze maps. I contributed to its migration from JavaScript to TypeScript and from Marionette.js to React.js, designing many of the core hooks and strategies for a gradual transition. I also helped to design and build the initial version of an SDK for user scripts and create a mapping library now used across multiple Waze projects.
+              <h4 lang="en">Waze Map Editor for Waze (Google subsidiary), the community-driven navigation platform</h4>
+              <h4 lang="uk">Редактор карт для Waze (частина Google), соціальна платформа для навігації</h4>
+              <p lang="en">Waze Map Editor (WME) is an online tool that allows users to edit and update Waze maps. I contributed to its migration from JavaScript to TypeScript and from Marionette.js to React.js, designing many of the core hooks and strategies for a gradual transition. I also helped to design and build the initial version of an SDK for user scripts and create a mapping library now used across multiple Waze projects.
+              </p>
+              <p lang="uk">Waze Map Editor (WME) — це онлайн-інструмент, який дозволяє користувачам редагувати та оновлювати карти Waze.
+ Я брав участь у його міграції з JavaScript на TypeScript та з Marionette.js на React.js, розробляючи багато основних хуків і стратегій для поступової трансформації.
+Також я допомагав проектувати та розробляти початкову версію SDK для користувацьких скриптів і створювати бібліотеку для роботи з картами, яка зараз використовується в кількох проєктах Waze.
               </p>
               <p class="technologies">TypeScript, React.js, Backbone.js, Node.js, OpenLayers, GeoJSON, Stencil, Jest, Puppeteer</p>
             </li>
           </ul>
-          <h3>
+
+          <h3 lang="en">
             Full Stack Engineer at Remit <span class="period">April 2016 – February 2021</span>
+          </h3>
+          <h3 lang="uk">
+            Full Stack розробник в Remit <span class="period">Квітень 2016 – Лютий 2021</span>
           </h3>
           <ul>
             <li>
-              <h4>Web Frontend for MaginePro, a video streaming company</h4>
-              <p>
+              <h4 lang="en">Web Frontend for MaginePro, a video streaming company</h4>
+              <h4 lang="uk">Веб додаток для MaginePro, платформи для стрімінгу відео</h4>
+              <p lang="en">
                 MaginePro is a white-label OTT platform. I helped to build the single-page application in React and prerendering
                 server in Node.js. Application is highly customizable via feature flags and scales for multiple partners,
                 which could be configured on the fly.
                 <br>
-                Also, I was working on a cross-platform video player, Chromecast receiver application, introduced end-to-end tests, and automated internal processes.
+                  Also, I was working on a cross-platform video player, Chromecast receiver application, introduced end-to-end tests, and automated internal processes.
               </p>
-              <p class="technologies">JavaScript, TypeScript, React.js, Redux.js, Node.js, Fela, GraphQL</p>
+              <p lang="uk">
+                MaginePro — це white label платформа для стрімінгу відео. Я допомагав створювати веб додаток на React і сервер для пререндерингу на Node.js. Додаток гнучко кастомізується і масштабується під потреби партнерських компаній.
+                <br>
+                  Також я працював над кросплатформним відеоплеєром, додатком для Chromecast, впровадив тести end-to-end та автоматизував внутрішні процеси.
+              </p>
+              <p class="technologies">JavaScript, TypeScript, React.js, Redux.js, Shaka Player, Node.js, Fela, GraphQL</p>
             </li>
 
             <li>
-              <h4>Calendar application for ThinkTank, the platform for collective intelligence</h4>
-              <p>
+              <h4 lang="en">Calendar app for ThinkTank, the platform for collective intelligence</h4>
+              <h4 lang="uk">Веб календар для ThinkTank, платформи колективного інтелекту</h4>
+              <p lang="en">
                 Single page calendar application for managing events and appointments using REST API in Java.
-                I took part in both frontend and backend development.
+              </p>
+              <p lang="uk">
+                Веб додаток-календар для керування подіями та записами за допомогою REST API на Java.
               </p>
               <p class="technologies">
                 Angular, TypeScript, RxJS, SASS, Java, Spring
@@ -198,14 +276,21 @@
         </div>
 
         <div class="experience">
-          <h3>
+          <h3 lang="en">
             Frontend Engineer at SoftServe <span class="period">August 2015 – April 2016</span>
+          </h3>
+          <h3 lang="uk">
+            Frontend розробник у SoftServe <span class="period">Серпень 2015 – Квітень 2016</span>
           </h3>
           <ul>
             <li>
-              <h4>Jitsi Meet for Atlassian</h4>
-              <p>
+              <h4 lang="en">Jitsi Meet SPA for Atlassian</h4>
+              <h4 lang="ukr">Веб додаток Jitsi Meet для Atlassian</h4>
+              <p lang="en">
                 I was refactoring and fixing bugs in the Jitsi.org web app, an open-source video conferencing solution.
+              </p>
+              <p lang="uk">
+                Я займався рефакторингом та виправленням помилок у веб-додатку Jitsi.org, відкритому рішенні для відеоконференцій.
               </p>
               <p class="technologies">
                 JavaScript, Babel, Lodash, JQuery
@@ -213,10 +298,15 @@
             </li>
 
             <li>
-              <h4>HipChat for Atlassian</h4>
-              <p>
+              <h4 lang="en">HipChat SPA for Atlassian</h4>
+              <h4 lang="uk">Веб додаток HipChat для Atlassian</h4>
+              <p lang="en">
                 I was working on React-based web UI for HipChat, a chat for teams from Atlassian.
                 I took part in refactoring, bugfixing, and writing unit and integration tests.
+              </p>
+              <p lang="uk">
+                Я працював над веб інтерфейсом на базі React для HipChat, чату для команд від Atlassian.
+                Брав участь у рефакторингу, виправленні помилок і написанні юніт- та інтеграційних тестів.
               </p>
               <p class="technologies">
                 JavaScript, React.js, Babel, Lodash, Karma, Selenium
@@ -226,13 +316,17 @@
         </div>
 
         <div class="experience">
-          <h3>
+          <h3 lang="en">
             Full Stack Engineer at Intellias <span class="period">July 2012 – August 2015</span>
+          </h3>
+          <h3 lang="uk">
+            Full Stack розробник в Intellias <span class="period">Липень 2012 – Серпень 2015</span>
           </h3>
           <ul>
             <li>
-              <h4>Secure online chat peer.me for Tenios, a German VoIP service provider</h4>
-              <p>
+              <h4 lang="en">Secure online chat peer.me for Tenios, a German VoIP service provider</h4>
+              <h4 lang="uk">Безпечний онлайн-чат peer.me для Tenios, німецького постачальника VoIP послуг</h4>
+              <p lang="en">
                 Webchat leverages the power of WebRTC, cutting-edge technology
                 which allows browsers to communicate with each other without a server
                 (peer-to-peer), with end-to-end encryption.
@@ -241,19 +335,29 @@
                 establishing group audio and video calls.
                 Also, I took part in the development of SPA UI and backend.
               </p>
+              <p lang="uk">
+                Веб чат, що використовує WebRTC для спілкування без сервера (peer-to-peer), із наскрізним шифруванням.
+                Я працював над бібліотекою для базової функціональності: надсилання зашифрованих текстових повідомлень і файлів, синхронізація даних між клієнтами, встановлення групових аудіо- та відеодзвінків.
+                Також брав участь у розробці веб додатку та серверної частини.
+              </p>
               <p class="technologies">
                 Java, WebSockets, WebRTC, Marionette.js, Tomcat, Jasmine
               </p>
             </li>
 
             <li>
-              <h4>Web portal and utilities for Tenios, a German VoIP service provider</h4>
-              <p>
+              <h4 lang="en">Web portal and utilities for Tenios, a German VoIP service provider</h4>
+              <h4 lang="uk">Веб портал та онлайн інструменти для Tenios, німецького постачальника VoIP послуг</h4>
+              <p lang="en">
                 The web portal is a SPA for customers to manage their phone
                 numbers, routing plans, bills, calls forwarding, etc., and an admin
                 portal to manage customers and internal business processes.
                 The backend was implemented as a REST API. I took part in both frontend
                 and backend development.
+              </p>
+              <p lang="uk">
+                Веб портал — це додаток для клієнтів для управління їхніми номерами телефонів, планами маршрутизації, рахунками, переадресацією дзвінків тощо, а також адміністративний портал для управління клієнтами та внутрішніми бізнес-процесами.
+ Серверна частина - REST API на Java.
               </p>
               <p class="technologies">
                 Java, Spring, Hibernate, PostgreSQL, Marionette.js, Bootstrap
@@ -261,11 +365,16 @@
             </li>
 
             <li>
-              <h4>Web portal for RPLab, diagnostic laboratory from Belgium</h4>
-              <p>
+              <h4 lang="en">Web portal for RPLab, diagnostic laboratory from Belgium</h4>
+              <h4 lang="uk">Веб портал для RPLab, діагностичної лабораторії з Бельгії</h4>
+              <p lang="en">
                 Web frontend for ETL process on client medical data. As a result, the system
                 also generates per-client reports in HTML or pdf formats.
                 I took part in both frontend and backend development.
+              </p>
+              <p lang="uk">
+                Додаток для керування ETL процесом обробки медичних даних клієнтів.
+                Як результат, система генерує звіти для кожного клієнта у форматах HTML або PDF.
               </p>
               <p class="technologies">
                 Java, Spring, MongoDB, JSP, Stripes, FlyingSaucer, JFreeChart
@@ -275,15 +384,23 @@
         </div>
 
         <div class="experience">
-          <h3>
+          <h3 lang="en">
             Java Developer at JSC Kredobank <span class="period">July 2010 – July 2012</span>
+          </h3>
+          <h3 lang="uk">
+            Java розробник в Кредобанку <span class="period">Липень 2010 – Липень 2012</span>
           </h3>
           <ul>
             <li>
-              <h4>Web services to aggregate and simplify internal business processes</h4>
-              <p>
+              <h4 lang="en">Web services to aggregate and simplify internal business processes</h4>
+              <h4 lang="uk">Веб сервіси для агрегації внутрішніх бізнес процесів</h4>
+              <p lang="en">
                 I was working on design, development, bugfixing, and support of internal
-                web services. Also, I built a GUI client in Swing for those web services.
+                web services. Also, I built a GUI client in Swing for configuring and calling those web services.
+              </p>
+              <p lang="uk">
+                Я проектуванням, розробляв та підтримував веб сервіси, що були частиною внутрішніх бізнес-процесів банку.
+                Також я створив графічний інтерфейс на Swing для гнучкого керування цими веб сервісами.
               </p>
               <p class="technologies">
                 Java, JBoss, SOAP, WSDL, Oracle 11g, Jenkins CI, Gradle
@@ -294,35 +411,52 @@
       </section>
 
       <section>
-        <h2>Education</h2>
+        <h2 lang="en">Education</h2>
+        <h2 lang="uk">Освіта</h2>
 
-        Master's degree in Applied Mathematics,
-        Ivan Franko National University of Lviv, Ukraine,
-        2007 - 2013
+        <span lang="en">Master's degree in Applied Mathematics, Ivan Franko National University of Lviv, Ukraine</span>
+        <span lang="uk">Магістр прикладної математики, ЛНУ імені Івана Франка, Львів</span>
+
+        (2007 - 2013)
       </section>
 
       <section>
-        <h2>Languages</h2>
+        <h2 lang="en">Languages</h2>
+        <h2 lang="uk">Мови</h2>
 
         <table class="languages">
           <thead></thead>
           <tbody>
-            <tr>
+            <tr lang="en">
               <td>Ukrainian</td>
               <td>Native</td>
             </tr>
-            <tr>
+            <tr lang="uk">
+              <td>Українська</td>
+              <td>Рідна</td>
+            </tr>
+            <tr lang="en">
               <td>English</td>
               <td>Advanced</td>
+            </tr>
+            <tr lang="uk">
+              <td>Англійська</td>
+              <td>Просунутий</td>
             </tr>
           </tbody>
         </table>
       </section>
 
       <section>
-        <h2>Interests</h2>
+        <h2 lang="en">Interests</h2>
+        <h2 lang="uk">Інтереси</h2>
 
-        Programming (particularly human-computer interactions, software engineering, cryptography, distributed systems), science fiction & popular science, traveling, hiking, computer games
+        <span lang="en">
+          Programming (particularly human-computer interactions, software engineering, cryptography, distributed systems), science fiction & popular science, traveling, hiking, computer games
+        </span>
+        <span lang="uk">
+          Програмування (інтерфейси, програмна інженерія, криптографія, розподілені системи), наукова фантастика та популярна наука, подорожі, хайкінг, комп'ютерні ігри
+        </span>
       </section>
     </article>
 
@@ -333,9 +467,19 @@
         target="_blank"
         rel="noopener"
         class="on-grey-bg"
-        >
+      >
         source
       </a>
     </div>
+
+    <script>
+      document.querySelectorAll('.lang-switcher').forEach((button) => {
+        button.addEventListener('click', (e) => {
+          const lang = e.currentTarget.dataset.value;
+          document.documentElement.lang = lang;
+        });
+      });
+    </script>
+
   </body>
 </html>
