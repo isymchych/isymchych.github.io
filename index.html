@@ -40,17 +40,15 @@
           el.removeAttribute('onmouseover');
       }
 
-      const years_of_experience = new Date().getFullYear() - 2010;
-
       fetch('https://api.github.com/repos/isymchych/isymchych.github.io/commits?per_page=1')
-    .then(result => result.json())
-    .then(result => new Date(result[0].commit.author.date).toDateString())
-    .then((dateStr) => {
-        document.getElementById('last-update-time').innerText = `Updated on ${dateStr}`;
-    })
-    .catch((err) => {
-        console.error('Failed to get last commit date', err);
-    });
+        .then(result => result.json())
+        .then(result => new Date(result[0].commit.author.date).toDateString())
+        .then((dateStr) => {
+            document.getElementById('last-update-time').innerText = `Updated on ${dateStr}`;
+        })
+        .catch((err) => {
+            console.error('Failed to get last commit date', err);
+        });
     </script>
 
     <style>
@@ -156,12 +154,12 @@
         <h2 lang="uk">Резюме</h2>
 
         <p lang="en">
-          Full Stack software engineer with <script>document.write(years_of_experience)</script> years of experience, seeking interesting projects.
+          Full Stack software engineer with <span class="years-of-experience"></span> years of experience, seeking interesting projects.
           I can build projects from the ground-up, and develop them without accumulating too much technical debt.
           I have extensive experience modernizing mature systems as well.
         </p>
         <p lang="uk">
-          Full Stack розробник з <script>document.write(years_of_experience)</script> роками досвіду.
+          Full Stack розробник з <span class="years-of-experience"></span> роками досвіду.
           Можу створювати проєкти з нуля та розвивати їх без надмірного накопичення технічного боргу.
           Маю значний досвід модернізації legacy систем.
         </p>
@@ -292,7 +290,7 @@
           <ul>
             <li>
               <h4 lang="en">Jitsi Meet SPA for Atlassian</h4>
-              <h4 lang="ukr">Веб додаток Jitsi Meet для Atlassian</h4>
+              <h4 lang="uk">Веб додаток Jitsi Meet для Atlassian</h4>
               <p lang="en">
                 I was refactoring and fixing bugs in the Jitsi.org web app, an open-source video conferencing solution.
               </p>
@@ -485,6 +483,11 @@
           const lang = e.currentTarget.dataset.value;
           document.documentElement.lang = lang;
         });
+      });
+
+      const years_of_experience = new Date().getFullYear() - 2010;
+      document.querySelectorAll('.years-of-experience').forEach((placeholder) => {
+        placeholder.innerText = years_of_experience;
       });
     </script>
 
